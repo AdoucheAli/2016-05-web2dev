@@ -1,0 +1,4 @@
+<Context>
+    <Environment name="esHosts" value="10.96.7.190:9300" type="java.lang.String" override="false" />
+</Context>
+

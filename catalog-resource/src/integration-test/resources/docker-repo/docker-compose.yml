@@ -1,0 +1,21 @@
+#version: '2'
+#services:
+  elasticsearch:
+    #build: ./search/es/mononode/212
+    image: elasticsearch:2.1.2
+    container_name: elasticsearch
+    volumes:
+      - /Users/zouheircadi/docker/es/data_mononode:/usr/share/elasticsearch/data
+    ports:
+      - "8200:8200"
+      - "9300:9300"
+  tomcat:
+    #build: ./tomcat/80
+    image: tomcat:7
+    container_name: tomcat
+    #depends_on:
+    #   - elasticsearch
+    links:
+       - elasticsearch
+    ports:
+      - "9090:9090"
